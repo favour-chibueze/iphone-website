@@ -16,7 +16,7 @@
 
 h2 {
     font-family: 'Montserrat';
-    font-size: 58.77px;
+    font-size: 60.77px;
     line-height: 1.0;
 }
 
@@ -26,12 +26,13 @@ body {
 
 .container {
     margin: 0 auto;
-    width: 78%;
+    width: 75%;
 }
 
 .navbar {
     padding: 4rem 0;
 }
+
 
 .wait-list-wrapper {
     display: flex;
