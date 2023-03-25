@@ -9,7 +9,6 @@
         </div>
       </nav>
     </header>
-
     <!-- Wait list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
@@ -68,13 +67,12 @@
         </div>
         <div class="ips-mockup-slide-wrapper">
           <div class="row justify-content-around align-items-center mt-4">
-            <div
-              class="ips-mockup-slide position-relative"
-             
-              v-for="(slide, index) in sliders"
-              :key="index"
-            >
-              <div class="w-full" :class="[`slide_${index}`]"></div>
+            <div class="progress--container">
+              <div
+                class="progress-bar"
+                v-for="(slide, index) in sliders"
+                :key="index"
+              ></div>
             </div>
           </div>
         </div>
@@ -197,6 +195,37 @@ export default {
 
     onMounted(() => {
       playSlideshow();
+
+      const progress = Array.from(document.querySelectorAll(".progress-bar"));
+
+      const playNext = (e) => {
+        const current = e && e.target;
+        let next;
+
+        if (current) {
+          const currentIndex = progress.indexOf(current);
+          if (currentIndex < progress.length) {
+            next = progress[currentIndex + 1];
+          }
+          current.classList.remove("active");
+          current.classList.add("passed");
+        }
+
+        if (!next) {
+          progress.map((el) => {
+            el.classList.remove("active");
+            el.classList.remove("passed");
+          });
+          next = progress[0];
+        }
+        next.classList.add("active");
+      };
+
+      progress.map((el) => {
+        el.addEventListener("animationend", playNext, false);
+      });
+
+      playNext();
     });
 
     return {
@@ -210,10 +239,6 @@ export default {
   },
 };
 </script>
-
-<style>
-@import "@/assets/styles/home.css";
-</style>
 
 
 

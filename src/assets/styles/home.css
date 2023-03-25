@@ -21,27 +21,6 @@
 
 
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-h2 {
-    font-family: 'Montserrat';
-    font-size: 60.77px;
-    line-height: 1.0;
-}
-
-body {
-    background: var(--app-bg-color)
-}
-
-.app-container {
-    margin: 0 auto;
-    width: 75%;
-}
-
 .navbar {
     padding: 4rem 0;
 }
@@ -227,30 +206,6 @@ label {
     border-radius: 1.00758px;
 }
 
-.w-full {
-    width: 100%;
-}
-
-/* CAROUSEL SLIDER */
-.slide_0 {
-    display: block;
-    height: 100%;
-    border-radius: 5px;
-    animation: progress-slide 8s infinite;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--progress-bg);
-    border-radius: 1px;
-}
-
-/* Animating the progress bar by initially starting from 0 */
-@keyframes progress-slide {
-    from {
-        width: 0;
-    }
-}
-
 .ips-slider-photo {
     width: 305px;
 }
@@ -274,83 +229,3 @@ label {
     right: 173px;
     width: 35%;
 }
-
-
-/* Mobile Respnsiveness */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .ips-carousel-mockup-wrapper {
-        margin-right: 0px;
-    }
-
-    .app-container {
-        margin: 0 auto;
-        width: 95%;
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 1rem 0;
-    }
-
-    header {
-        display: none;
-    }
-
-    .app-container {
-        margin: 0 auto;
-        width: 95%;
-    }
-
-    h2 {
-        font-family: 'Montserrat';
-        font-size: 38.77px;
-        line-height: 1.0;
-    }
-
-    .wait-list-form .wait-list-input-wrapper {
-        width: 100% !important;
-    }
-
-    .ips-btn {
-        width: 100%;
-    }
-
-    .wait-list-wrapper {
-        margin-top: 90.61px;
-    }
-
-    .ips-carousel-mockup-wrapper {
-        margin-top: 38.29px;
-        margin-right: 0;
-    }
-
-    .ips-carousel-mockup-wrapper img {
-        width: 100%;
-    }
-
-    .ips-carousel-mockup-wrapper .ips-slider-photo {
-        width: 94%;
-    }
-
-    .ips-mockup-small {
-        width: 42.3px;
-        height: 42.3px;
-        left: 40px;
-    }
-
-    .ips-camera-pointers {
-        bottom: 160px;
-        left: 0%;
-    }
-
-    .ips-mockup-slide-wrapper {
-        left: 74px;
-        width: 59%;
-    }
-}
-
-
-
-/* SLIDES */
