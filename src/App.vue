@@ -138,7 +138,6 @@ export default {
     watch(() => state.email, validateEmail);
 
     const submitForm = () => {
-      console.log("EMAIK", state.email)
       validateEmail();
       if (!state.formValid) {
         console.log("Form Error");
