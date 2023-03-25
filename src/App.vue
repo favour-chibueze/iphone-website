@@ -8,6 +8,7 @@
         </div>
       </nav>
     </header>
+
     <!-- Wait list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
@@ -20,7 +21,12 @@
           </p>
         </div>
         <div class="wait-list-form">
-          <base-input v-model:modelValue="email" type="text" label="Enmail" :emailError="emailError" />
+          <base-input
+            v-model:modelValue="email"
+            type="text"
+            label="Enmail"
+            :emailError="emailError"
+          />
           <div>
             <button class="ips-btn" @click="submitForm">
               Please Notify Me
@@ -50,9 +56,14 @@
           </div>
         </div>
         <div class="ips-mockup-small">
-          <!-- <img
-            :src="getPrevSlidePic(sliders[previousSlideIndex - 1].largeImg)"
-          /> -->
+          <img
+            :src="
+              getPrevSlidePic(
+                sliders?.[previousSlideIndex - 1]?.largeImg ||
+                  'carousel-photo-02.jpg'
+              )
+            "
+          />
         </div>
         <div class="ips-mockup-slide-wrapper">
           <div class="row justify-content-around align-items-center mt-4">
@@ -73,8 +84,7 @@
 <script>
 import { toRefs, reactive, watch, onMounted, computed } from "vue";
 import { gsap } from "gsap";
-import BaseInput from '@/components/BaseInput.vue';
-
+import BaseInput from "@/components/BaseInput.vue";
 
 export default {
   components: {
@@ -154,6 +164,7 @@ export default {
           slider.active = false;
         }
       });
+      console.log("state.activeIndex", state.activeIndex);
       gsap.to(`.slide-${state.activeIndex}`, {
         duration: 1,
         opacity: 1,
