@@ -9,7 +9,7 @@
         </div>
       </nav>
     </header>
-    
+
     <!-- Wait list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
@@ -36,7 +36,6 @@
       <div
         class="ips-carousel-wrapper position-relative col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6"
       >
-
         <caraousel-sliders :slides="carouselSlider" @get-pic="getPic" />
 
         <div class="ips-mockup-small">
@@ -79,7 +78,7 @@ export default {
 
       sliders: [
         {
-          largeImg: "carousel-photo-03@2x.jpg",
+          largeImg: "slide-1-resized.jpeg",
           active: true,
         },
         {
@@ -87,7 +86,7 @@ export default {
           active: false,
         },
         {
-          largeImg: "carousel-photo-01@2x.jpg",
+          largeImg: "slide-2.jpeg", //l
           active: false,
         },
         {

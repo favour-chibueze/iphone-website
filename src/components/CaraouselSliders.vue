@@ -13,7 +13,7 @@
       <img
         :src="getPic(slider.largeImg)"
         :alt="slide"
-        :class="[`slide-${index}`]"
+        :class="[`slide-${index} ips-img`]"
       />
     </div>
   </div>

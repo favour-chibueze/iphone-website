@@ -3,20 +3,35 @@
     .ips-carousel-mockup-wrapper {
         margin-right: 0px;
     }
-}
 
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
     .ips-mockup-small {
         right: 271px;
     }
 }
 
-@media screen and (min-width: 1024px){
-    .ips-mockup-small {
-        right: 372px;
+
+
+
+@media screen and (min-width: 300px) and(max-width: 1023px) {
+    .wait-list-form-wrapper .wait-list-form .wait-list-input-wrapper {
+        width: 300px !important;
+    }
+
+    .app-container {
+        margin: 0 auto;
+        width: 95%;
     }
 }
+
+
+
+@media screen and (min-width: 300px) and(max-width: 575px) {
+    .ips-carousel-mockup-wrapper .ips-slider-photo {
+        width: 288px !important;
+    }
+}
+
+
 
 @media screen and (max-width: 768px) {
     .navbar {
@@ -60,13 +75,19 @@
     }
 
     .ips-carousel-mockup-wrapper .ips-slider-photo {
-        width: 94%;
-        top: 11.2%;
+        width: 91.5%;
+        top: 16.2%;
+        left: 15px;
+    }
+
+    .ips-carousel-mockup-wrapper .ips-slider-photo>.ips-img {
+        height: 407px;
     }
 
     .ips-mockup-small {
-        left: 11%;
         bottom: 10%;
+        width: 49.3px;
+        left: 37.5px;
     }
 
     .ips-camera-pointers {
@@ -82,8 +103,8 @@
     .wait-list-wrapper {
         margin-top: 15px !important;
     }
-    
-    .ips-carousel-mockup-wrapper  {
+
+    .ips-carousel-mockup-wrapper {
         margin-top: 38.29px;
     }
 }
