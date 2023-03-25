@@ -14,12 +14,13 @@
     margin: 0 5px;
     display: flex;
     margin-right: 10px;
+    
     background-image: -webkit-linear-gradient(
       left,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(88, 89, 104, 0.5) 50.001%,
-      rgba(88, 89, 104, 0.5) 100%
+      rgb(238, 236, 236) 0%,
+      rgb(238, 236, 236) 50%,
+      rgb(58, 58, 58, 0.5)  50.001%,
+      rgb(58, 58, 58, 0.5) 100%
     );
   
     background-repeat: no-repeat;

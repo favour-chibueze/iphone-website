@@ -9,4 +9,5 @@
   @import "@/assets/styles/carousel.css";
   @import "@/assets/styles/responsive.css";
   @import "@/assets/styles/global.css";
+  @import "@/assets/styles/controls.css";
 </style>

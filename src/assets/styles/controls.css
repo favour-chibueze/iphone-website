@@ -1,0 +1,63 @@
+/* FORM Component */
+.wait-list-form-wrapper .wait-list-form .wait-list-input-wrapper {
+    width: 394.6px;
+    height: 57.84px;
+    border-radius: 5.6px;
+    background: var(--dark-gray-color);
+    border: 0.93287px solid var(--light-gray-color);
+    border-radius: 5.59722px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14.9259px;
+}
+
+.wait-list-form .wait-list-input {
+    border: 0;
+    outline: none;
+    width: 100%;
+    color: var(--input-text-color);
+    background: transparent;
+}
+
+.wait-list-form .wait-list-input-container {
+    width: 85%;
+    position: relative;
+    color: var(--white-color);
+}
+
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    color: var(--white-color);
+    pointer-events: none;
+    font-size: 14.9259px;
+    line-height: 1.5;
+
+}
+
+.wait-list-input:focus~label,
+.wait-list-form .wait-list-input:not(:placeholder-shown)~label {
+    top: -1.0rem;
+    left: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--label-color);
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+.wait-list-form .wait-list-input:focus,
+.wait-list-form .wait-list-input:not(:placeholder-shown) {
+    outline: none;
+}
+
+.form-input-error {
+    border: 1px solid var(--form-danger-color) !important;
+}
+
+.form-text-error {
+    color: var(--form-danger-color) !important;
+}
