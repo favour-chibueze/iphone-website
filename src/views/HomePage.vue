@@ -9,7 +9,7 @@
         </div>
       </nav>
     </header>
-
+    
     <!-- Wait list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
@@ -36,7 +36,7 @@
       <div
         class="ips-carousel-wrapper position-relative col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6"
       >
-      
+
         <caraousel-sliders :slides="carouselSlider" @get-pic="getPic" />
 
         <div class="ips-mockup-small">
@@ -144,20 +144,14 @@ export default {
       });
 
       gsap.to(`.slide-${state.activeIndex}`, {
-        duration: 1,
+        duration: 0,
         opacity: 1,
         onComplete: () => {
           state.activeIndex = (state.activeIndex + 1) % state.sliders.length;
         },
       });
-      gsap.to(`.slide-${state.activeIndex}`, {
-        duration: 8,
-        delay: 0,
-        opacity: 1,
-      });
       gsap.to(".progress", {
         duration: 8,
-        width: "100%",
         onComplete: () => {
           gsap.set(".progress", { width: 0 });
           playSlideshow();

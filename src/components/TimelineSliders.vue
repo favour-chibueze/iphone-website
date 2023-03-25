@@ -4,6 +4,7 @@
       <div class="progress--container">
         <div
           class="progress-bar"
+          :class="[`progress-bar-${index}`]"
           v-for="(slide, index) in sliders"
           :key="index"
         ></div>

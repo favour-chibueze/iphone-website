@@ -113,15 +113,15 @@
 
 .ips-carousel-mockup-wrapper .ips-slider-photo {
     position: absolute;
-    right: 10px;
-    top: 104px;
+    right: 2%;
+    top: 16.6%;
 }
 
 
 
 .ips-mockup-small img {
     width: 100%;
-    height: 46.3px;
+    height: 100%;
 }
 
 .ips-camera-pointers {
@@ -150,6 +150,7 @@
 
 .ips-slider-photo img {
     width: 100%;
+    height: 100%;
 }
 
 .ips-mockup-small {
@@ -157,8 +158,8 @@
     height: 40.3px;
     border-radius: 50%;
     position: absolute;
-    bottom: 71px;
-    left: 218px;
+    bottom: 10.5%;
+    left: 34.7%;
 }
 
 .ips-mockup-slide-wrapper {

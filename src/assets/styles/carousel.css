@@ -30,6 +30,12 @@
     animation-delay: 0.2s;
     animation-duration: 7.7s
   }
+
+
+.progress-bar.passed {
+    background-position: 0 0; 
+}
+
   
   .active {
     animation-name: Loader;
