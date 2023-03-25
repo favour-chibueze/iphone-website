@@ -1,7 +1,7 @@
 <template>
   <div
     class="wait-list-input-wrapper"
-    :class="[emailError ? 'form-input-error' : null]"
+    :class="[formError ? 'form-input-error' : null]"
   >
     <div class="wait-list-input-container">
       <input
@@ -13,8 +13,8 @@
       />
       <label
         for="wait-list-input"
-        :class="[emailError ? 'form-text-error' : null]"
-        >{{ emailError ? emailError : "Enter your Email Address" }}</label
+        :class="[formError ? 'form-text-error' : null]"
+        >{{ formError ? formError : "Enter your Email Address" }}</label
       >
     </div>
     <div class="wait-list-form-placeholder--icon">
@@ -33,7 +33,7 @@ export default {
       default: "",
       required: true,
     },
-    emailError: {
+    formError: {
       type: String,
       default: "",
     },

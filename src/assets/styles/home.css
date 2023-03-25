@@ -16,6 +16,7 @@
     --btn-hover-color: white;
     --btn-left-bg-gradient-hover: #3d0b15;
     --btn-right-bg-gradient-hover: rgb(61, 12, 21);
+    --progress-bg: #EEECEC;
 }
 
 
@@ -114,10 +115,12 @@ body {
     border-left: 1px solid var(--btn-left-border-color);
     transition: all 1s;
 }
+
 .ips-btn:hover {
     color: var(--btn-hover-color);
     background-image: linear-gradient(135deg, var(--btn-left-bg-gradient-hover) 0%, var(--btn-right-bg-gradient-hover) 100%);
 }
+
 .wait-list-form-wrapper .wait-list-form .ips-btn {
     margin-top: 17px;
 }
@@ -224,7 +227,29 @@ label {
     border-radius: 1.00758px;
 }
 
+.w-full {
+    width: 100%;
+}
 
+/* CAROUSEL SLIDER */
+.slide_0 {
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+    animation: progress-slide 8s infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--progress-bg);
+    border-radius: 1px;
+}
+
+/* Animating the progress bar by initially starting from 0 */
+@keyframes progress-slide {
+    from {
+        width: 0;
+    }
+}
 
 .ips-slider-photo {
     width: 305px;

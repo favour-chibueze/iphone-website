@@ -6,7 +6,6 @@
         <p>Thanks for subscribing to our news letter.</p>
         <p>you should receive a confirmation email soon</p>
         <div class="mt-4">
-            <!-- <router-link to="/" class="go-home mt-4">Click here to send again</router-link> -->
             <router-link to="/" class="ips-btn" @click="submitForm">
               Please Notify Me
             </router-link>

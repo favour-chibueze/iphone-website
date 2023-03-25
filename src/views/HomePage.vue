@@ -26,7 +26,7 @@
             v-model:modelValue="email"
             type="text"
             label="Enmail"
-            :emailError="emailError"
+            :formError="formError"
           />
           <div>
             <button class="ips-btn" @click="submitForm">
@@ -69,12 +69,13 @@
         <div class="ips-mockup-slide-wrapper">
           <div class="row justify-content-around align-items-center mt-4">
             <div
-              class="ips-mockup-slide"
-              value="0"
-              max="100"
+              class="ips-mockup-slide position-relative"
+             
               v-for="(slide, index) in sliders"
               :key="index"
-            ></div>
+            >
+              <div class="w-full" :class="[`slide_${index}`]"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +96,7 @@ export default {
   setup() {
     const state = reactive({
       email: "",
-      emailError: "",
+      formError: "",
       formValid: false,
 
       sliders: [
@@ -134,13 +135,13 @@ export default {
     const validateEmail = () => {
       const isValid = /\S+@\S+\.\S+/.test(state.email);
       if (!state.email) {
-        state.emailError = "Enter your Email Address";
+        state.formError = "Enter your Email Address";
         state.formValid = false;
       } else if (!isValid) {
-        state.emailError = "Please enter a valid email";
+        state.formError = "Please enter a valid email";
         state.formValid = false;
       } else {
-        state.emailError = "";
+        state.formError = "";
         state.formValid = true;
       }
     };
@@ -152,7 +153,7 @@ export default {
       if (!state.formValid) {
         return;
       }
-      router.push({ path: '/success-page', query: { email: state.email } })
+      router.push({ path: "/success-page", query: { email: state.email } });
     };
 
     const playSlideshow = () => {
@@ -163,7 +164,7 @@ export default {
           slider.active = false;
         }
       });
-      console.log("state.activeIndex", state.activeIndex);
+
       gsap.to(`.slide-${state.activeIndex}`, {
         duration: 1,
         opacity: 1,
@@ -172,12 +173,12 @@ export default {
         },
       });
       gsap.to(`.slide-${state.activeIndex}`, {
-        duration: 5,
+        duration: 8,
         delay: 0,
         opacity: 1,
       });
       gsap.to(".progress", {
-        duration: 5,
+        duration: 8,
         width: "100%",
         onComplete: () => {
           gsap.set(".progress", { width: 0 });
@@ -210,6 +211,9 @@ export default {
 };
 </script>
 
+<style>
+@import "@/assets/styles/home.css";
+</style>
 
 
 
