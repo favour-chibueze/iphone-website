@@ -9,6 +9,7 @@
         </div>
       </nav>
     </header>
+
     <!-- Wait list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
@@ -28,33 +29,16 @@
             :formError="formError"
           />
           <div>
-            <button class="ips-btn" @click="submitForm">
-              Please Notify Me
-            </button>
+            <IpsButton @submit-form="submitForm"> Please Notify Me </IpsButton>
           </div>
         </div>
       </div>
       <div
         class="ips-carousel-wrapper position-relative col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6"
       >
-        <div class="ips-carousel-mockup-wrapper">
-          <img
-            src="@/assets/images/FE-test-assets.svg"
-            class="ips-camera-pointers img-fluid"
-          />
-          <img src="@/assets/images/iPhone-mokup.png" />
-          <div
-            v-for="(slider, index) in carouselSlider"
-            :key="index"
-            :class="`slide-${index} ips-slider-photo`"
-          >
-            <img
-              :src="getPic(slider.largeImg)"
-              alt="slide"
-              :class="[`slide-${index}`]"
-            />
-          </div>
-        </div>
+      
+        <caraousel-sliders :slides="carouselSlider" @get-pic="getPic" />
+
         <div class="ips-mockup-small">
           <img
             :src="
@@ -65,17 +49,7 @@
             "
           />
         </div>
-        <div class="ips-mockup-slide-wrapper">
-          <div class="row justify-content-around align-items-center mt-4">
-            <div class="progress--container">
-              <div
-                class="progress-bar"
-                v-for="(slide, index) in sliders"
-                :key="index"
-              ></div>
-            </div>
-          </div>
-        </div>
+        <timeline-sliders :sliders="sliders" />
       </div>
     </div>
   </div>
@@ -86,10 +60,16 @@ import { toRefs, reactive, watch, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import { gsap } from "gsap";
 import BaseInput from "@/components/BaseInput.vue";
+import IpsButton from "@/components/IpsButton.vue";
+import CaraouselSliders from "@/components/CaraouselSliders.vue";
+import TimelineSliders from "@/components/TimelineSliders.vue";
 
 export default {
   components: {
     BaseInput,
+    IpsButton,
+    CaraouselSliders,
+    TimelineSliders,
   },
   setup() {
     const state = reactive({
@@ -185,10 +165,6 @@ export default {
       });
     };
 
-    const getPic = (src) => {
-      return require(`@/assets/images/${src}`);
-    };
-
     const getPrevSlidePic = (src) => {
       return require(`@/assets/images/${src}`);
     };
@@ -230,7 +206,6 @@ export default {
 
     return {
       submitForm,
-      getPic,
       getPrevSlidePic,
       carouselSlider,
       previousSlideIndex,
