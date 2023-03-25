@@ -37,6 +37,7 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 100px;
+    margin-top: -50px;
 }
 
 .wait-list-wrapper .wait-list-form {
@@ -130,7 +131,7 @@
     position: absolute;
     bottom: 164px;
     z-index: 1;
-    left: 54%;
+    right: 100px;
 }
 
 .slide {
@@ -158,8 +159,8 @@
     height: 40.3px;
     border-radius: 50%;
     position: absolute;
-    bottom: 10.5%;
-    left: 13.625rem;
+    bottom: 71px;
+    right: 372px;
 }
 
 .ips-mockup-slide-wrapper {

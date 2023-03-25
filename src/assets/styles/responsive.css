@@ -6,6 +6,18 @@
 }
 
 
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .ips-mockup-small {
+        right: 271px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .ips-mockup-small {
+        right: 372px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .navbar {
         padding: 1rem 0;
@@ -69,5 +81,9 @@
 
     .wait-list-wrapper {
         margin-top: 15px !important;
+    }
+    
+    .ips-carousel-mockup-wrapper  {
+        margin-top: 38.29px;
     }
 }
