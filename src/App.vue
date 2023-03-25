@@ -8,7 +8,6 @@
         </div>
       </nav>
     </header>
-
     <!-- Wait list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
@@ -21,29 +20,7 @@
           </p>
         </div>
         <div class="wait-list-form">
-          <div
-            class="wait-list-input-wrapper"
-            :class="[emailError ? 'form-input-error' : null]"
-          >
-            <div class="wait-list-input-container">
-              <input
-                class="wait-list-input"
-                type="text"
-                placeholder=" "
-                v-model="email"
-              />
-              <label
-                for="wait-list-input"
-                :class="[emailError ? 'form-text-error' : null]"
-                >{{
-                  emailError ? emailError : "Enter your Email Address"
-                }}</label
-              >
-            </div>
-            <div class="wait-list-form-placeholder--icon">
-              <img src="@/assets/images/mail-icon.svg" />
-            </div>
-          </div>
+          <base-input v-model:modelValue="email" type="text" label="Enmail" :emailError="emailError" />
           <div>
             <button class="ips-btn" @click="submitForm">
               Please Notify Me
@@ -51,9 +28,42 @@
           </div>
         </div>
       </div>
-      <div class="ips-carousel-wrapper col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6">
+      <div
+        class="ips-carousel-wrapper position-relative col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6"
+      >
         <div class="ips-carousel-mockup-wrapper">
+          <img
+            src="@/assets/images/FE-test-assets.svg"
+            class="ips-camera-pointers img-fluid"
+          />
           <img src="@/assets/images/iPhone-mokup.png" />
+          <div
+            v-for="(slider, index) in carouselSlider"
+            :key="index"
+            :class="`slide-${index} ips-slider-photo`"
+          >
+            <img
+              :src="getPic(slider.largeImg)"
+              alt="slide"
+              :class="[`slide-${index}`]"
+            />
+          </div>
+        </div>
+        <div class="ips-mockup-small">
+          <!-- <img
+            :src="getPrevSlidePic(sliders[previousSlideIndex - 1].largeImg)"
+          /> -->
+        </div>
+        <div class="ips-mockup-slide-wrapper">
+          <div class="row justify-content-around align-items-center mt-4">
+            <div
+              class="ips-mockup-slide"
+              value="0"
+              max="100"
+              v-for="(slide, index) in sliders"
+              :key="index"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
@@ -61,14 +71,54 @@
 </template>
 
 <script>
-import { toRefs, reactive, watch } from "vue";
+import { toRefs, reactive, watch, onMounted, computed } from "vue";
+import { gsap } from "gsap";
+import BaseInput from '@/components/BaseInput.vue';
+
 
 export default {
+  components: {
+    BaseInput,
+  },
   setup() {
     const state = reactive({
       email: "",
       emailError: "",
       formValid: false,
+
+      sliders: [
+        {
+          largeImg: "carousel-photo-03@2x.jpg",
+          active: true,
+        },
+        {
+          largeImg: "carousel-photo-04.jpg",
+          active: false,
+        },
+        {
+          largeImg: "carousel-photo-01@2x.jpg",
+          active: false,
+        },
+        {
+          largeImg: "carousel-photo-02.jpg",
+          active: false,
+        },
+      ],
+      activeIndex: 0,
+
+      // IG STORY
+      colors: ["#D53738", "#638867", "#FAF429"],
+      current: 0,
+    });
+
+    const previousSlideIndex = computed(() => {
+      return state.activeIndex - 1 < 0
+        ? state.sliders.length - 1
+        : state.activeIndex - 1;
+    });
+
+    const carouselSlider = computed(() => {
+      return state.sliders.filter((slider) => !!slider.active);
     });
 
     const validateEmail = () => {
@@ -85,8 +135,11 @@ export default {
       }
     };
 
+    watch(() => state.email, validateEmail);
+
     const submitForm = () => {
-      validateEmail()
+      console.log("EMAIK", state.email)
+      validateEmail();
       if (!state.formValid) {
         console.log("Form Error");
       } else {
@@ -94,10 +147,54 @@ export default {
       }
     };
 
-    watch(() => state.email, validateEmail);
+    const playSlideshow = () => {
+      state.sliders.forEach((slider, index) => {
+        if (index === state.activeIndex) {
+          slider.active = true;
+        } else {
+          slider.active = false;
+        }
+      });
+      gsap.to(`.slide-${state.activeIndex}`, {
+        duration: 1,
+        opacity: 1,
+        onComplete: () => {
+          state.activeIndex = (state.activeIndex + 1) % state.sliders.length;
+        },
+      });
+      gsap.to(`.slide-${state.activeIndex}`, {
+        duration: 5,
+        delay: 0,
+        opacity: 1,
+      });
+      gsap.to(".progress", {
+        duration: 5,
+        width: "100%",
+        onComplete: () => {
+          gsap.set(".progress", { width: 0 });
+          playSlideshow();
+        },
+      });
+    };
+
+    const getPic = (src) => {
+      return require(`@/assets/images/${src}`);
+    };
+
+    const getPrevSlidePic = (src) => {
+      return require(`@/assets/images/${src}`);
+    };
+
+    onMounted(() => {
+      playSlideshow();
+    });
 
     return {
       submitForm,
+      getPic,
+      getPrevSlidePic,
+      carouselSlider,
+      previousSlideIndex,
       ...toRefs(state),
     };
   },
@@ -107,3 +204,8 @@ export default {
 <style>
 @import "@/assets/styles/styles.css";
 </style>
+
+
+
+
+
