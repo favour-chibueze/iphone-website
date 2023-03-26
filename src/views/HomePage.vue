@@ -10,7 +10,7 @@
       </nav>
     </header>
 
-    <!-- Wait list section  -->
+    <!-- Waiting list section  -->
     <div class="app-container wait-list-wrapper row">
       <div class="wait-list-form-wrapper col-md-6 col-sm-12 col-xs-12 col-lg-6">
         <div class="wait-list-badge">New course</div>

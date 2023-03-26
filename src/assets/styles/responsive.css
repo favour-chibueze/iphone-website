@@ -29,9 +29,9 @@
 @media screen and (min-width: 1024px) {
     .ambient-bg {
         position: absolute;
-        top: 36px;
-        height: 440px;
-        width: 300px;
+        top: 4px;
+        height: 99.5%;
+        width: 290px;
         z-index: -1;
     }
     
