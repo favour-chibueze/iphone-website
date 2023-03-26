@@ -21,11 +21,6 @@
 
 
 
-.navbar {
-    padding: 4rem 0;
-}
-
-
 .wait-list-wrapper {
     display: flex;
     justify-content: space-between;
@@ -38,6 +33,8 @@
     justify-content: flex-end;
     margin-right: 100px;
     margin-top: -50px;
+    position: relative;
+    
 }
 
 .wait-list-wrapper .wait-list-form {
@@ -106,12 +103,6 @@
 }
 
 
-
-
-.ips-carousel-mockup-wrapper {
-    position: relative;
-}
-
 .ips-carousel-mockup-wrapper .ips-slider-photo {
     position: absolute;
     right: 1.9%;
@@ -159,4 +150,18 @@
     position: absolute;
     right: 173px;
     width: 35%;
+}
+
+
+.navbar {
+    padding: 2rem 0;
+}
+
+.ambient-bg {
+    position: absolute;
+    top: 36px;
+    left: 94px;
+    height: 440px;
+    width: 300px;
+    z-index: -1;
 }

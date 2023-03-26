@@ -1,9 +1,10 @@
 <template>
-  <div class="ips-carousel-mockup-wrapper">
+  <div class="ips-carousel-mockup-wrapper position-relative">
     <img
       src="@/assets/images/FE-test-assets.svg"
       class="ips-camera-pointers img-fluid"
     />
+    <div class="ambient-bg" :style="{ boxShadow: currentSlide.shadow }"></div>
     <img src="@/assets/images/iPhone-mokup.png" />
     <div
       v-for="(slider, index) in slides"
@@ -20,23 +21,31 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      slides: {
-        type: Array,
-        default: () => [],
-        required: true,
-      },
-    },
-    setup() {
-      const getPic = (src) => {
-        return require(`@/assets/images/${src}`);
-      };
+import { ref, watch } from "vue";
 
-      return {
-        getPic,
-      };
+export default {
+  props: {
+    slides: {
+      type: Array,
+      default: () => [],
+      required: true,
     },
-  };
+  },
+
+  setup({ slides }) {
+    
+    const getPic = (src) => {
+      return require(`@/assets/images/${src}`);
+    };
+
+    const currentSlide = ref(slides[0]);
+
+    console.log("currentSlide", currentSlide.value)
+
+    return {
+      getPic,
+      currentSlide,
+    };
+  },
+};
 </script>
-

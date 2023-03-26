@@ -36,7 +36,11 @@
       <div
         class="ips-carousel-wrapper position-relative col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6"
       >
-        <caraousel-sliders :slides="carouselSlider" @get-pic="getPic" />
+        <caraousel-sliders
+          :slides="carouselSlider"
+          @get-pic="getPic"
+          :key="() => key++"
+        />
 
         <div class="ips-mockup-small">
           <img
@@ -62,6 +66,7 @@ import BaseInput from "@/components/BaseInput.vue";
 import IpsButton from "@/components/IpsButton.vue";
 import CaraouselSliders from "@/components/CaraouselSliders.vue";
 import TimelineSliders from "@/components/TimelineSliders.vue";
+import { sliders } from '@/constants';
 
 export default {
   components: {
@@ -76,25 +81,9 @@ export default {
       formError: "",
       formValid: false,
 
-      sliders: [
-        {
-          largeImg: "slide-1-resized.jpeg",
-          active: true,
-        },
-        {
-          largeImg: "carousel-photo-04.jpg",
-          active: false,
-        },
-        {
-          largeImg: "slide-2.jpeg", //l
-          active: false,
-        },
-        {
-          largeImg: "carousel-photo-02.jpg",
-          active: false,
-        },
-      ],
+      sliders,
       activeIndex: 0,
+      key: 0,
     });
 
     const router = useRouter();
