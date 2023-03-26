@@ -42,23 +42,25 @@
       <div
         class="ips-carousel-wrapper position-relative col-md-6 col-md-6 col-sm-12 col-xs-12 col-lg-6"
       >
-        <caraousel-sliders
-          :slides="carouselSlider"
-          @get-pic="getPic"
-          :key="() => key++"
-        />
-
-        <div class="ips-mockup-small">
-          <img
-            :src="
-              getPrevSlidePic(
-                sliders?.[previousSlideIndex - 1]?.largeImg ||
-                  'carousel-photo-02.jpg'
-              )
-            "
+        <div class="d-flex align-items-center justify-content-center">
+          <caraousel-sliders
+            :slides="carouselSlider"
+            @get-pic="getPic"
+            :key="() => key++"
           />
+
+          <div class="ips-mockup-small">
+            <img
+              :src="
+                getPrevSlidePic(
+                  sliders?.[previousSlideIndex - 1]?.largeImg ||
+                    'carousel-photo-02.jpg'
+                )
+              "
+            />
+          </div>
+          <timeline-sliders :sliders="sliders" />
         </div>
-        <timeline-sliders :sliders="sliders" />
       </div>
     </div>
   </div>
