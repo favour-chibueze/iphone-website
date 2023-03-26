@@ -7,7 +7,7 @@
         <p>you should receive a confirmation email soon</p>
         <div class="mt-4">
           <router-link to="/" class="ips-btn" @click="submitForm">
-            Please Notify Me
+            Back to home page
           </router-link>
         </div>
       </div>

@@ -9,20 +9,33 @@
     }
 }
 
-
+@media only screen and (min-width:768px) and (max-width:1280px){
+    .app-container {
+        width: 80% !important;
+    }
+    .wait-list-wrapper .wait-list-header {
+        font-size: 40px;
+    }
+}
 
 
 @media screen and (min-width: 300px) and(max-width: 1023px) {
     .wait-list-form-wrapper .wait-list-form .wait-list-input-wrapper {
         width: 300px !important;
     }
-
-    .app-container {
-        margin: 0 auto;
-        width: 95%;
-    }
 }
 
+
+@media screen and (min-width: 1024px) {
+    .ambient-bg {
+        position: absolute;
+        top: 36px;
+        height: 440px;
+        width: 300px;
+        z-index: -1;
+    }
+    
+}
 
 
 @media screen and (min-width: 300px) and(max-width: 575px) {
@@ -110,5 +123,8 @@
     .wait-list-header {
         font-size: 40px;
         font-family: 300px;
+    }
+    .ambient-bg  {
+        display: none;
     }
 }

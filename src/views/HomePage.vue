@@ -22,15 +22,21 @@
           </p>
         </div>
         <div class="wait-list-form">
-          <base-input
-            v-model:modelValue="email"
-            type="text"
-            label="Enmail"
-            :formError="formError"
-          />
-          <div>
-            <IpsButton @submit-form="submitForm"> Please Notify Me </IpsButton>
-          </div>
+          <form @submit.prevent="submitForm">
+            <base-input
+              v-model:modelValue="email"
+              type="text"
+              label="Enmail"
+              :formError="formError"
+            />
+            <ips-button
+              @submit-form="submitForm"
+              :formError="formError"
+              type="submit"
+            >
+              Please Notify Me
+            </ips-button>
+          </form>
         </div>
       </div>
       <div
@@ -66,7 +72,7 @@ import BaseInput from "@/components/BaseInput.vue";
 import IpsButton from "@/components/IpsButton.vue";
 import CaraouselSliders from "@/components/CaraouselSliders.vue";
 import TimelineSliders from "@/components/TimelineSliders.vue";
-import { sliders } from '@/constants';
+import { sliders } from "@/constants";
 
 export default {
   components: {

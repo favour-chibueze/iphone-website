@@ -17,6 +17,7 @@
     --btn-left-bg-gradient-hover: #3d0b15;
     --btn-right-bg-gradient-hover: rgb(61, 12, 21);
     --progress-bg: #EEECEC;
+    --gray-color: gray;
 }
 
 
@@ -157,11 +158,3 @@
     padding: 2rem 0;
 }
 
-.ambient-bg {
-    position: absolute;
-    top: 36px;
-    left: 94px;
-    height: 440px;
-    width: 300px;
-    z-index: -1;
-}

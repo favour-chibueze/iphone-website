@@ -19,7 +19,7 @@
   .wrapper-2 p {
     margin: 0;
     font-size: 1.3em;
-    color: var(--light-gray-color);
+    color: var(--gray-color);
     font-family: "Source Sans Pro", sans-serif;
     letter-spacing: 1px;
   }
